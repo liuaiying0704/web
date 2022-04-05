@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>主轴对齐方式</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      /* flex布局：
+      1、网页更简单、灵活 ；
+      2、避免浮动脱标；
+      3、兼容性问题
+      3、基于flex精确灵活控制块级盒子布局方式，避免浮动布局中的脱标问题；
+      4、非常适合结构布局
+      5、给父元素加display：flex，子元素可以自动拉伸、挤压。
+      6、默认沿着主轴排列，justify-content设置水平对齐。align-item垂直对齐方式
+            沿着侧轴排列，加属性
+      7、
+*/
+
+      .box {
+        /* 添加给父盒子 */
+        display: flex;
+        /* 一、盒子分布水平方向-主轴。主轴对齐方式：justify-content */
+
+        /* 1、默认值 ，从起始排列*/
+        justify-content: flex-start;
+
+        /* 2、从结尾开始排列 */
+        justify-content: flex-end;
+
+        /*  3、沿着主轴居中排列*/
+        justify-content: center;
+
+        /* 4、平均分配，贴边、剩余尺寸，放到弹性盒子中间 */
+        /* =======0盒子1盒子1盒子0 =====*/
+        justify-content: space-between;
+
+        /* 5、平均分配，不贴边。剩余空间平均分配每个盒子左右两侧。盒子之间有两倍间距 */
+        /* ========1盒子2盒子2盒子1 ======*/
+        justify-content: space-around;
+
+        /* 6、 所有地方平均分配剩余间距*/
+        /* =========1盒子1盒子1盒子1 =======*/
+        justify-content: space-evenly;
+
+        /* 二、盒子分布水平方向-主轴。侧轴对齐方式：align items */
+        /* 1、默认值 ，从起点开始排列*/
+        align-items: flex-start;
+
+        /* 2、从终点开始排列 */
+        align-items: flex-end;
+
+        /* 3、垂直居中显示 */
+        /* justify-content: center; */
+        align-items: center;
+
+        /* 4、拉伸 。生效前提条件：弹性盒子没有高度*/
+        align-items: stretch;
+
+        height: 300px;
+        margin: auto;
+        border: 1px solid #000;
+      }
+
+      /*  三、单个弹性盒子设置,在侧轴的对齐方式*/
+      .box div:nth-child(2) {
+        align-self: center;
+        background-color: red;
+      }
+      .box div:nth-child(3) {
+        align-self: flex-end;
+        background-color: yellow;
+      }
+      /* 四、flex特点
+      1、不设置弹性盒子的宽，默认内容撑开。
+       width: 100px; 
+      2、不设置弹性盒子的高，默认拉伸。
+      height：100px
+      第2、3个盒子设置了align-self: flex-end，层叠掉了align-items：stretch。
+      
+      */
+
+      .box div {
+        /* width: 100px; */
+        /* height: 100px; */
+        background-color: pink;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
+  </body>
+</html>
