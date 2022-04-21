@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .cub {
+        margin: 250px auto;
+        position: relative;
+        width: 200px;
+        height: 200px;
+        /* 3D效果加给父级盒子 */
+        transform-style: preserve-3d;
+        /* 动画：属性、时长、匀速 */
+        transition: all 0.5s linear;
+        animation: move linear 5s infinite;
+        transform-origin: 100px 100px 100px;
+      }
+      .cub div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .front {
+        /* background-color: orange; */
+        background: url(../lay.刘爱莹/lay.img/tu1.jpg) no-repeat center/cover;
+      }
+      .back {
+        /* background-color: orange; */
+        transform: translateZ(200px);
+        background: url(../lay.刘爱莹/lay.img/tu5.jpg) no-repeat center/cover;
+      }
+      .top {
+        background-color: pink;
+        transform: rotateX(90deg) translateY(100px) translateZ(100px);
+        background: url(../lay.刘爱莹/lay.img/tu6.jpg) no-repeat center/cover;
+      }
+      .bottom {
+        background-color: pink;
+        transform: rotateX(90deg) translateY(100px) translateZ(-100px);
+      }
+      .left {
+        background-color: green;
+        transform: rotateY(90deg) translateZ(-100px) translateX(-100px);
+        background: url(../lay.刘爱莹/lay.img/tu2.jpg) no-repeat center/cover;
+      }
+      .right {
+        background-color: green;
+        transform: rotateY(90deg) translateZ(100px) translateX(-100px);
+        background: url(../lay.刘爱莹/lay.img/tu3.jpg) no-repeat center/cover;
+      }
+      /* 为了观看立体效果，加个hover，旋转角度 */
+      /* .cub:hover {
+        transform: rotateY(-60deg);
+      } */
+
+      @keyframes move {
+        to {
+          transform: rotateY(360deg);
+        }
+      } ;
+    </style>
+  </head>
+  <body>
+    <div class="cub">
+      <div class="front"></div>
+      <div class="back"></div>
+      <div class="top"></div>
+      <div class="bottom"></div>
+      <div class="left"></div>
+      <div class="right"></div>
+    </div>
+  </body>
+</html>
